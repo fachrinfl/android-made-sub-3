@@ -6,4 +6,14 @@
     <string name="str_nb_movie">Movie</string>
     <string name="str_nb_tv">Tv</string>
     <string name="str_nb_artist">Artist</string>
+
+    <!--network-->
+    <string name="request_failed">Please, check your connection</string>
+
+    <!--toolbar control-->
+    <string name="tb_language">Change Language</string>
+
+    <!--detail movie-->
+    <string name="dtl_overview">Overview</string>
+    <string name="dtl_release">Release on</string>
 </resources>

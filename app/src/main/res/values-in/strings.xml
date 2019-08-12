@@ -6,4 +6,14 @@
     <string name="str_nb_movie">Movie</string>
     <string name="str_nb_tv">Tv</string>
     <string name="str_nb_artist">Artis</string>
+
+    <!--network-->
+    <string name="request_failed">Mohon, periksa jaringan anda</string>
+
+    <!--toolbar control-->
+    <string name="tb_language">Ganti Bahasa</string>
+
+    <!--detail movie-->
+    <string name="dtl_overview">Ikhtisar</string>
+    <string name="dtl_release">Rilis pada</string>
 </resources>

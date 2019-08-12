@@ -32,7 +32,7 @@
 
         </FrameLayout>
 
-        <TextView
+        <com.fachrinfl.movie.custom.TextViewBold
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -42,11 +42,10 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tvRelease"
             app:layout_constraintEnd_toEndOf="parent"
-            android:lines="1"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Title" />
 
-        <TextView
+        <com.fachrinfl.movie.custom.TextViewMedium
             android:id="@+id/tvRelease"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

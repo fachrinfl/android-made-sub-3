@@ -1,5 +1,8 @@
 package com.fachrinfl.movie;
 
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,11 +11,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-import com.fachrinfl.movie.artist.ArtistFragment;
-import com.fachrinfl.movie.movie.view.fragment.MovieFragment;
-import com.fachrinfl.movie.tv.view.TvFragment;
+import com.fachrinfl.movie.features.artist.ArtistFragment;
+import com.fachrinfl.movie.features.movie.view.fragment.MovieFragment;
+import com.fachrinfl.movie.features.tv.view.TvFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -27,6 +32,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Movie");
+
+        ((TextView)toolbar.getChildAt(0)).setTypeface(Typeface.createFromAsset(
+                getApplicationContext().getAssets(), "fonts/gotham/GothamBold.ttf"
+        ));
+
         setSupportActionBar(toolbar);
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
@@ -61,5 +71,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         fragmentTransaction.replace(R.id.fl_content, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_change_settings) {
+            Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+            startActivity(mIntent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
