@@ -22,6 +22,8 @@ public class MovieRepository {
     private Application application;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private MutableLiveData<List<Movie>> movieLiveData = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isError = new MutableLiveData<>();
     private ArrayList<Movie> movies;
     private Observable<MovieResponse> movieResponseObservable;
 
@@ -30,11 +32,8 @@ public class MovieRepository {
     }
 
     public MutableLiveData<List<Movie>> getPopularMovieLiveData() {
-        Toast.makeText(
-                application.getApplicationContext(),
-                "Request Load Data",
-                Toast.LENGTH_LONG
-        ).show();
+        isLoading.setValue(true);
+        isError.setValue(false);
         movies = new ArrayList<>();
         MovieDataServices getMovieDataService = RetrofitMovieInstance.getService();
         movieResponseObservable = getMovieDataService
@@ -59,24 +58,26 @@ public class MovieRepository {
 
                     @Override
                     public void onError(Throwable e) {
-                        Toast.makeText(
-                                application.getApplicationContext(),
-                                "Failed Load Data",
-                                Toast.LENGTH_LONG
-                        ).show();
+                        isLoading.setValue(false);
+                        isError.setValue(true);
                     }
 
                     @Override
                     public void onComplete() {
                         movieLiveData.postValue(movies);
-                        Toast.makeText(
-                                application.getApplicationContext(),
-                                "Success Load Data",
-                                Toast.LENGTH_LONG
-                        ).show();
+                        isLoading.setValue(false);
+                        isError.setValue(false);
                     }
                 }));
         return movieLiveData;
+    }
+
+    public MutableLiveData<Boolean> getIsLoading() {
+        return isLoading;
+    }
+
+    public MutableLiveData<Boolean> getIsError() {
+        return isError;
     }
 
     public void clear() {

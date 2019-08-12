@@ -5,9 +5,8 @@
     android:id="@+id/cvItem"
     android:layout_width="match_parent"
     android:layout_height="300dp"
-    android:layout_margin="16dp"
     app:cardCornerRadius="10dp"
-    app:cardElevation="8dp">
+    app:cardElevation="3dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,9 +14,8 @@
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/ivCover"
-            android:layout_width="379dp"
+            android:layout_width="0dp"
             android:layout_height="300dp"
-            android:layout_marginBottom="8dp"
             android:scaleType="centerCrop"
             android:src="@drawable/place_holder_picture"
             app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
@@ -30,29 +28,34 @@
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#59000000">
+            android:background="@drawable/item_rv_dropshadow">
 
         </FrameLayout>
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="70dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:letterSpacing=".05"
-            android:textSize="36sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tvRelease"
             app:layout_constraintEnd_toEndOf="parent"
+            android:lines="1"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Title" />
 
         <TextView
             android:id="@+id/tvRelease"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="24dp"
-            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"

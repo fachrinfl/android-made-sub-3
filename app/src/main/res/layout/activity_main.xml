@@ -29,15 +29,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation_bottom_menu" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:background="@drawable/toolbar_dropshadow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
     <FrameLayout
         android:id="@+id/fl_content"
         android:layout_width="0dp"
@@ -48,5 +39,14 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
     </FrameLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fl_content" />
 
 </android.support.constraint.ConstraintLayout>

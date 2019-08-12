@@ -19,6 +19,7 @@ import com.fachrinfl.movie.R;
 import com.fachrinfl.movie.movie.adapter.MovieAdapter;
 import com.fachrinfl.movie.movie.model.Movie;
 import com.fachrinfl.movie.movie.viewmodel.MovieViewModel;
+import com.fachrinfl.movie.utilities.GridSpacingItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +71,12 @@ public class MovieFragment extends Fragment {
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 4));
         }
 
+        int spanCount = 2; // 2 columns
+        int spacing = 50; // 50px
+        boolean includeEdge = true;
+
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         recyclerView.setAdapter(movieAdapter);
         movieAdapter.notifyDataSetChanged();
 

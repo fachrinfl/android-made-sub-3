@@ -23,6 +23,14 @@ public class MovieViewModel extends AndroidViewModel {
         return movieRepository.getPopularMovieLiveData();
     }
 
+    public LiveData<Boolean> getLoading() {
+        return movieRepository.getIsLoading();
+    }
+
+    public LiveData<Boolean> getError() {
+        return movieRepository.getIsError();
+    }
+
     public void clear() {
         movieRepository.clear();
     }
