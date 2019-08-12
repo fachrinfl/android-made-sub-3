@@ -1,6 +1,5 @@
 package com.fachrinfl.movie;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.fachrinfl.movie.artist.ArtistFragment;
-import com.fachrinfl.movie.movie.view.MovieFragment;
+import com.fachrinfl.movie.movie.view.fragment.MovieFragment;
 import com.fachrinfl.movie.tv.view.TvFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
