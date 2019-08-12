@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Movie</string>
+    <string name="api_key">a489d4bc8ffe59c0d5d9099ef02fe46a</string>
+
+    <!--navigation bottom menu-->
+    <string name="str_nb_movie">Movie</string>
+    <string name="str_nb_tv">Tv</string>
+    <string name="str_nb_artist">Artis</string>
+</resources>
