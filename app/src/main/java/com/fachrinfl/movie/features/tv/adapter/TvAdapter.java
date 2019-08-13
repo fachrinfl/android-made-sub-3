@@ -3,6 +3,7 @@ package com.fachrinfl.movie.features.tv.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,8 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.TvViewHolder>{
         tvViewHolder.tvTitle.setText(tv.getTitle());
         tvViewHolder.tvRelease.setText(tv.getReleaseDate());
 
-        String imagePath="https://image.tmdb.org/t/p/w500" + tv.getPosterPath();
+
+        String imagePath="https://image.tmdb.org/t/p/w500" + tv.getBackdropPath();
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(R.drawable.place_holder_picture);
@@ -67,9 +69,9 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.TvViewHolder>{
         public TvViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            ivCover = (ImageView) itemView.findViewById(R.id.ivCover);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
-            tvRelease = (TextView) itemView.findViewById(R.id.tvRelease);
+            ivCover = (ImageView) itemView.findViewById(R.id.ivCoverTv);
+            tvTitle = (TextView) itemView.findViewById(R.id.tvTitleTv);
+            tvRelease = (TextView) itemView.findViewById(R.id.tvReleaseTv);
         }
     }
 }

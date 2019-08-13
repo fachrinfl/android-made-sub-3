@@ -58,7 +58,6 @@ public class MovieRepository {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i("MovieRepository", String.valueOf(e));
                         isLoading.setValue(false);
                         isError.setValue(true);
                     }

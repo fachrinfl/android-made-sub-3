@@ -88,7 +88,6 @@ public class MovieFragment extends Fragment {
             @Override
             public void onChanged(@Nullable Boolean isLoading) {
                 if (isLoading) {
-                    Toast.makeText(getContext(), "Request Data", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.VISIBLE);
                 } else {
                     progressBar.setVisibility(View.INVISIBLE);

@@ -24,7 +24,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:spanCount="2"
-                tools:listitem="@layout/item_rv_movie" />
+                tools:listitem="@layout/item_rv_tv" />
 
             <ProgressBar
                 android:id="@+id/pb_loading"
@@ -33,10 +33,10 @@
                 android:layout_height="wrap_content"
                 android:indeterminateDrawable="@drawable/progressbar_custom"
                 android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/rvMovie"
+                app:layout_constraintBottom_toBottomOf="@+id/rvTv"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/rvMovie"
-                app:layout_constraintTop_toTopOf="@+id/rvMovie" />
+                app:layout_constraintStart_toStartOf="@+id/rvTv"
+                app:layout_constraintTop_toTopOf="@+id/rvTv" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 </android.support.v4.widget.SwipeRefreshLayout>
