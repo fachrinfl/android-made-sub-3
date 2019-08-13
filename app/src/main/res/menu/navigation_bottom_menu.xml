@@ -10,9 +10,4 @@
         android:icon="@drawable/icn_tv"
         android:title="@string/str_nb_tv"
         />
-    <item
-        android:id="@+id/nb_artist"
-        android:icon="@drawable/icn_people"
-        android:title="@string/str_nb_artist"
-        />
 </menu>

@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.fachrinfl.movie.features.artist.ArtistFragment;
 import com.fachrinfl.movie.features.movie.view.fragment.MovieFragment;
 import com.fachrinfl.movie.features.tv.view.fragment.TvFragment;
 
@@ -61,9 +60,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             case  R.id.nb_tv:
                 fragment = new TvFragment();
-                break;
-            case R.id.nb_artist:
-                fragment = new ArtistFragment();
                 break;
         }
 

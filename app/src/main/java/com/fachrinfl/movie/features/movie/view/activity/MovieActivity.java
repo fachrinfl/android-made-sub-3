@@ -2,16 +2,13 @@ package com.fachrinfl.movie.features.movie.view.activity;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;

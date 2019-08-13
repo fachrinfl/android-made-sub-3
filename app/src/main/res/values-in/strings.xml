@@ -5,7 +5,6 @@
     <!--navigation bottom menu-->
     <string name="str_nb_movie">Movie</string>
     <string name="str_nb_tv">Tv</string>
-    <string name="str_nb_artist">Artis</string>
 
     <!--network-->
     <string name="request_failed">Mohon, periksa jaringan anda</string>
