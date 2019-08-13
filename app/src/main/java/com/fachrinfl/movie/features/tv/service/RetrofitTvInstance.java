@@ -1,4 +1,4 @@
-package com.fachrinfl.movie.features.movie.service;
+package com.fachrinfl.movie.features.tv.service;
 
 import com.fachrinfl.movie.BuildConfig;
 
@@ -9,11 +9,11 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitMovieInstance {
+public class RetrofitTvInstance {
 
     private static Retrofit retrofit = null;
 
-    public static MovieDataServices getService() {
+    public static TvDataServices getService() {
 
         OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
                 .connectTimeout(120, TimeUnit.SECONDS)
@@ -31,6 +31,7 @@ public class RetrofitMovieInstance {
                     .build();
         }
 
-        return retrofit.create(MovieDataServices.class);
+        return retrofit.create(TvDataServices.class);
+
     }
 }

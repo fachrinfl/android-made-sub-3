@@ -1,4 +1,4 @@
-package com.fachrinfl.movie.features.movie.view.fragment;
+package com.fachrinfl.movie.features.tv.view.fragment;
 
 
 import android.arch.lifecycle.Observer;
@@ -19,42 +19,42 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.fachrinfl.movie.R;
-import com.fachrinfl.movie.features.movie.adapter.MovieAdapter;
-import com.fachrinfl.movie.features.movie.model.Movie;
-import com.fachrinfl.movie.features.movie.viewmodel.MovieViewModel;
+import com.fachrinfl.movie.features.tv.adapter.TvAdapter;
+import com.fachrinfl.movie.features.tv.model.Tv;
+import com.fachrinfl.movie.features.tv.viewmodel.TvViewModel;
 import com.fachrinfl.movie.utilities.GridSpacingItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieFragment extends Fragment {
+public class TvFragment extends Fragment {
 
-    private ArrayList<Movie> movies = new ArrayList<>();
-    private MovieViewModel movieViewModel;
+    private ArrayList<Tv> tvs = new ArrayList<>();
+    private TvViewModel tvViewModel;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private MovieAdapter movieAdapter;
-    int spacing = 50; // 50px
+    private TvAdapter tvAdapter;
+    int spacing = 50;
     boolean includeEdge = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movie, container, false);
+        return inflater.inflate(R.layout.fragment_tv, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getPopularMovie();
+        getPopularTv();
 
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorLabel));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getPopularMovie();
+                getPopularTv();
             }
         });
     }
@@ -63,32 +63,31 @@ public class MovieFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.rvMovie);
+        recyclerView = (RecyclerView) view.findViewById(R.id.rvTv);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(
                 this.getResources().getConfiguration().orientation
                         == Configuration.ORIENTATION_PORTRAIT ? 2 : 4,
                 spacing,
                 includeEdge));
-
         progressBar = (ProgressBar) view.findViewById(R.id.pb_loading);
-        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.sl_fmovie);
-        movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.sl_ftv);
+        tvViewModel = ViewModelProviders.of(this).get(TvViewModel.class);
+
     }
 
-    private void getPopularMovie() {
-        movieViewModel.getPopularMovies().observe(this, new Observer<List<Movie>>() {
+    private void getPopularTv() {
+        tvViewModel.getPopularTv().observe(this, new Observer<List<Tv>>() {
             @Override
-            public void onChanged(@Nullable List<Movie> moviesList) {
-                movies = (ArrayList<Movie>) moviesList;
+            public void onChanged(@Nullable List<Tv> tvsList) {
+                tvs = (ArrayList<Tv>) tvsList;
                 initRv();
             }
         });
 
-        movieViewModel.getLoading().observe(this, new Observer<Boolean>() {
+        tvViewModel.getLoading().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean isLoading) {
                 if (isLoading) {
-                    Toast.makeText(getContext(), "Request Data", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.VISIBLE);
                 } else {
                     progressBar.setVisibility(View.INVISIBLE);
@@ -97,7 +96,7 @@ public class MovieFragment extends Fragment {
             }
         });
 
-        movieViewModel.getError().observe(this, new Observer<Boolean>() {
+        tvViewModel.getError().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean isError) {
                 if (isError) {
@@ -108,7 +107,7 @@ public class MovieFragment extends Fragment {
     }
 
     private void initRv() {
-        movieAdapter = new MovieAdapter(getContext(), movies);
+        tvAdapter = new TvAdapter(getContext(), tvs);
 
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -117,14 +116,13 @@ public class MovieFragment extends Fragment {
         }
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(movieAdapter);
-        movieAdapter.notifyDataSetChanged();
-
+        recyclerView.setAdapter(tvAdapter);
+        tvAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        movieViewModel.clear();
+        tvViewModel.clear();
     }
 }

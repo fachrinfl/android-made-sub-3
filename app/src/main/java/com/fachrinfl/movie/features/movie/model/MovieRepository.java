@@ -2,6 +2,7 @@ package com.fachrinfl.movie.features.movie.model;
 
 import android.app.Application;
 import android.arch.lifecycle.MutableLiveData;
+import android.util.Log;
 
 import com.fachrinfl.movie.R;
 import com.fachrinfl.movie.features.movie.service.MovieDataServices;
@@ -57,6 +58,7 @@ public class MovieRepository {
 
                     @Override
                     public void onError(Throwable e) {
+                        Log.i("MovieRepository", String.valueOf(e));
                         isLoading.setValue(false);
                         isError.setValue(true);
                     }
