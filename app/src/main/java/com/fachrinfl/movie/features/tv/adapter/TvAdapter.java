@@ -38,11 +38,11 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.TvViewHolder>{
     public void onBindViewHolder(@NonNull TvViewHolder tvViewHolder, int i) {
         Tv tv = tvArrayList.get(i);
 
-        tvViewHolder.tvTitle.setText(tv.getTitle());
-        tvViewHolder.tvRelease.setText(tv.getReleaseDate());
+        tvViewHolder.tvTitle.setText(tv.getOriginalName());
+        tvViewHolder.tvRelease.setText(tv.getFirstAirDate());
 
 
-        String imagePath="https://image.tmdb.org/t/p/w500" + tv.getBackdropPath();
+        String imagePath="https://image.tmdb.org/t/p/w500" + tv.getPosterPath();
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(R.drawable.place_holder_picture);
@@ -69,9 +69,9 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.TvViewHolder>{
         public TvViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            ivCover = (ImageView) itemView.findViewById(R.id.ivCoverTv);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvTitleTv);
-            tvRelease = (TextView) itemView.findViewById(R.id.tvReleaseTv);
+            ivCover = (ImageView) itemView.findViewById(R.id.ivCover);
+            tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+            tvRelease = (TextView) itemView.findViewById(R.id.tvRelease);
         }
     }
 }

@@ -13,7 +13,7 @@
         android:layout_height="300dp">
 
         <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/ivCoverTv"
+            android:id="@+id/ivCover"
             android:layout_width="0dp"
             android:layout_height="300dp"
             android:scaleType="centerCrop"
@@ -33,7 +33,7 @@
         </FrameLayout>
 
         <com.fachrinfl.movie.custom.TextViewBold
-            android:id="@+id/tvTitleTv"
+            android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:letterSpacing=".05"
@@ -46,7 +46,7 @@
             tools:text="Title" />
 
         <com.fachrinfl.movie.custom.TextViewMedium
-            android:id="@+id/tvReleaseTv"
+            android:id="@+id/tvRelease"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
