@@ -8,6 +8,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -98,5 +99,29 @@ public class MovieActivity extends AppCompatActivity {
                 );
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                backData();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        backData();
+    }
+
+    private void backData () {
+        int data = R.id.nb_movie;
+        Intent intent = new Intent();
+        intent.putExtra("activity", data);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 
 }

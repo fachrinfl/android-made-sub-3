@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -95,4 +96,28 @@ public class TvActivity extends AppCompatActivity {
                 );
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                backData();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        backData();
+    }
+
+    private void backData () {
+        int data = R.id.nb_tv;
+        Intent intent = new Intent();
+        intent.putExtra("activity", data);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 }
