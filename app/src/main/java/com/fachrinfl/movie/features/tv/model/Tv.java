@@ -1,5 +1,6 @@
 package com.fachrinfl.movie.features.tv.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -36,7 +37,7 @@ public class Tv implements Parcelable
     private String posterPath;
     @SerializedName("genre_ids")
     @Expose
-    private List<Integer> genreIds = null;
+    private List<Integer> genreIds = new ArrayList<>();
     @SerializedName("original_language")
     @Expose
     private String originalLanguage;
@@ -48,7 +49,7 @@ public class Tv implements Parcelable
     private String overview;
     @SerializedName("origin_country")
     @Expose
-    private List<String> originCountry = null;
+    private List<String> originCountry = new ArrayList<>();
     public final static Parcelable.Creator<Tv> CREATOR = new Creator<Tv>() {
 
 

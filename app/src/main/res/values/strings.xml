@@ -16,4 +16,5 @@
     <!--detail movie-->
     <string name="dtl_overview">Overview</string>
     <string name="dtl_release">Release on</string>
+    <string name="title_activity_tv">TvActivity</string>
 </resources>

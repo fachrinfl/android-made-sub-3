@@ -1,6 +1,7 @@
 package com.fachrinfl.movie.features.tv.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.fachrinfl.movie.R;
 import com.fachrinfl.movie.features.tv.model.Tv;
+import com.fachrinfl.movie.features.tv.view.activity.TvActivity;
 
 import java.util.ArrayList;
 
@@ -72,6 +74,19 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.TvViewHolder>{
             ivCover = (ImageView) itemView.findViewById(R.id.ivCover);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvRelease = (TextView) itemView.findViewById(R.id.tvRelease);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        Tv selectedTv = tvArrayList.get(position);
+
+                        Intent intent = new Intent(context, TvActivity.class);
+                        intent.putExtra("tv", selectedTv);
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }
