@@ -42,7 +42,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        showFragment(R.id.nb_movie);
+        if(savedInstanceState == null) {
+            showFragment(R.id.nb_movie);
+        }
 
     }
 

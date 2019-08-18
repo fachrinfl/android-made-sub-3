@@ -73,6 +73,14 @@ public class MovieFragment extends Fragment {
         progressBar = (ProgressBar) view.findViewById(R.id.pb_loading);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.sl_fmovie);
         movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
+        movieViewModel.getPopularMovies().observe(this, new Observer<List<Movie>>() {
+            @Override
+            public void onChanged(@Nullable List<Movie> moviesList) {
+                movies = (ArrayList<Movie>) moviesList;
+                initRv();
+            }
+        });
+
     }
 
     private void getPopularMovie() {

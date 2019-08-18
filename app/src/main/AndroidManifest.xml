@@ -13,7 +13,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".features.tv.view.activity.TvActivity"
-            android:label="@string/title_activity_tv"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
